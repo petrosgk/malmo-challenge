@@ -37,17 +37,18 @@ except ImportError:
 
 from common import parse_clients_args, visualize_training, ENV_AGENT_NAMES, ENV_TARGET_NAMES
 from agent import PigChaseChallengeAgent, FocusedAgent
+from myagent import MyAgent
 from environment import PigChaseEnvironment, PigChaseSymbolicStateBuilder
 
 # Enforce path
 sys.path.insert(0, os.getcwd())
 sys.path.insert(1, os.path.join(os.path.pardir, os.getcwd()))
 
-BASELINES_FOLDER = 'results/baselines/pig_chase/%s/%s'
+EXPERIMENTS_FOLDER = 'results/experiments/pig_chase/%s/%s'
 EPOCH_SIZE = 100
 
 
-def agent_factory(name, role, baseline_agent, clients, max_epochs,
+def agent_factory(name, role, experiment_agent, clients, max_epochs,
                   logdir, visualizer):
 
     assert len(clients) >= 2, 'Not enough clients (need at least 2)'
@@ -88,10 +89,12 @@ def agent_factory(name, role, baseline_agent, clients, max_epochs,
 
     else:
 
-        if baseline_agent == 'astar':
+        if experiment_agent == 'astar':
             agent = FocusedAgent(name, ENV_TARGET_NAMES[0])
-        else:
+        elif experiment_agent == 'random':
             agent = RandomAgent(name, env.available_actions)
+        else:
+            agent = MyAgent(name, ENV_TARGET_NAMES[0], ENV_AGENT_NAMES[0])
 
         obs = env.reset()
         reward = 0
@@ -142,10 +145,10 @@ def run_experiment(agents_def):
 
 
 if __name__ == '__main__':
-    arg_parser = ArgumentParser('Pig Chase baseline experiment')
+    arg_parser = ArgumentParser('Pig Chase experiment')
     arg_parser.add_argument('-t', '--type', type=str, default='astar',
-                            choices=['astar', 'random'],
-                            help='The type of baseline to run.')
+                            choices=['astar', 'random', 'myagent'],
+                            help='The type of agent to run.')
     arg_parser.add_argument('-e', '--epochs', type=int, default=5,
                             help='Number of epochs to run.')
     arg_parser.add_argument('clients', nargs='*',
@@ -153,14 +156,14 @@ if __name__ == '__main__':
                             help='Minecraft clients endpoints (ip(:port)?)+')
     args = arg_parser.parse_args()
 
-    logdir = BASELINES_FOLDER % (args.type, datetime.utcnow().isoformat())
+    logdir = EXPERIMENTS_FOLDER % (args.type, datetime.utcnow().isoformat())
     if 'malmopy.visualization.tensorboard' in sys.modules:
         visualizer = TensorboardVisualizer()
         visualizer.initialize(logdir, None)
     else:
         visualizer = ConsoleVisualizer()
 
-    agents = [{'name': agent, 'role': role, 'baseline_agent': args.type,
+    agents = [{'name': agent, 'role': role, 'experiment_agent': args.type,
                'clients': args.clients, 'max_epochs': args.epochs,
                'logdir': logdir, 'visualizer': visualizer}
               for role, agent in enumerate(ENV_AGENT_NAMES)]
