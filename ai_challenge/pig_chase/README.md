@@ -18,7 +18,7 @@ The pig chased is inspired by the variant of the _stag hunt_ presented in [Yoshi
 
 ## How to play (human players)
 
-To familiarize yourself with the game, we recommend that you play it yourself. The following instructions allow you to play the game with a "focused agent". A baseline agent that tries to move towards the pig whenever possible. There are also instructions for playing with our Augmented AStar agent. 
+To familiarize yourself with the game, we recommend that you play it yourself. The following instructions allow you to play the game with a "focused agent". A baseline agent that tries to move towards the pig whenever possible.
 
 ### Prerequisites
 
@@ -29,11 +29,6 @@ To familiarize yourself with the game, we recommend that you play it yourself. T
 * Start two instances of the Malmo Client on ports `10000` and `10001`
 * `cd malmo-challenge/ai_challenge/pig_chase`
 * `python pig_chase_human_vs_agent.py`
-
-### Playing with our agent
-If you want to play with our Augmented AStar agent instead of the 'focused' baseline agent, run:
-* `python pig_chase_human_vs_agent.py -t myagent`
-
 
 Wait for a few seconds for the human player interface to appear.
 
