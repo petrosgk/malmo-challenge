@@ -15,19 +15,19 @@
 # SOFTWARE.
 # ===================================================================================================================
 
-from common import ENV_AGENT_NAMES
+from common import ENV_AGENT_NAMES, ENV_TARGET_NAMES
 from evaluation import PigChaseEvaluator
-from environment import PigChaseTopDownStateBuilder
-from malmopy.agent import RandomAgent
+from environment import PigChaseSymbolicStateBuilder
+from myagent import MyAgent
 
 
 if __name__ == '__main__':
     # Warn for Agent name !!!
 
     clients = [('127.0.0.1', 10000), ('127.0.0.1', 10001)]
-    agent = RandomAgent(ENV_AGENT_NAMES[1], 3)
+    agent = MyAgent(ENV_AGENT_NAMES[1], ENV_TARGET_NAMES[0], ENV_AGENT_NAMES[0])
 
-    eval = PigChaseEvaluator(clients, agent, agent, PigChaseTopDownStateBuilder())
+    eval = PigChaseEvaluator(clients, agent, agent, PigChaseSymbolicStateBuilder())
     eval.run()
 
-    eval.save('My Exp 1', 'pig_chase_results.json')
+    eval.save('ParSys', 'pig_chase_results.json')
