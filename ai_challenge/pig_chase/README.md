@@ -76,7 +76,7 @@ Our Augmented AStar agent entry for the Malmo Collaborative AI challenge is base
 
 It also exploits the fact that the pig behaves as a normal Minecraft mob. If the pig is in an unfavorable position (eg. it can't be caught), it holds off making a move until the pig moves and goes to a position where it's easier to catch.
 
-Below is a video of our agent playing with the `FocusedAgent` collaborator:
+Below is a video of our agent playing with the `FocusedAgent` collaborator, as seen from a top-down view:
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=lZ4elqLYdV0
 " target="_blank"><img src="http://img.youtube.com/vi/lZ4elqLYdV0/0.jpg" 
@@ -84,5 +84,9 @@ alt="Minecraft Collaborative AI challenge entry" width="480" height="360" border
 
 ## Evaluate our agent
 
-We provide a commodity evaluator PigChaseEvaluator, which allows you to quickly evaluate
-the performance of your agent.
+You can evaluate our agent by running:
+
+```
+python pig_chase_eval.py
+```
+Results will be written to `pig_chase_results.json`.
