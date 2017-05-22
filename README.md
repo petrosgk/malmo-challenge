@@ -1,6 +1,6 @@
 ## Run an experiment with our Augmented AStar agent
 
-First, start two instances of the Malmo Client as [above](#steps). Then run:
+First, start two instances of the Malmo Client. Then run:
 
 ```
 python pig_chase_experiment.py -t myagent
