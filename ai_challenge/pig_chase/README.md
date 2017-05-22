@@ -79,7 +79,7 @@ alt="Minecraft Collaborative AI challenge entry" width="480" height="360" border
 
 Below is the Reward per Episode achieved by the Augmented AStar agent:
 
-![Performance of the Augmented AStar agent](Perf.png?raw=true "Performance of the Augmented AStar agent")
+![Performance of the Augmented AStar agent](perf.png?raw=true "Performance of the Augmented AStar agent")
 
 ## Evaluate our agent
 
