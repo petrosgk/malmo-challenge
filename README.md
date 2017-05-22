@@ -38,6 +38,8 @@ Below is the Reward per Episode achieved by the Augmented AStar agent:
 
 ![Performance of the Augmented AStar agent](perf.png?raw=true "Performance of the Augmented AStar agent")
 
+Average score per episode: 15.53
+
 ## Evaluate our agent
 
 You can evaluate our agent by running:
