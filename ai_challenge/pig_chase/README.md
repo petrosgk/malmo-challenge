@@ -77,6 +77,10 @@ Below is a video of our agent playing with the `FocusedAgent` collaborator, as s
 " target="_blank"><img src="http://img.youtube.com/vi/lZ4elqLYdV0/0.jpg" 
 alt="Minecraft Collaborative AI challenge entry" width="480" height="360" border="10" /></a>
 
+Below is the Reward per Episode achieved by the Augmented AStar agent:
+
+![Performance of the Augmented AStar agent](Perf.png?raw=true "Performance of the Augmented AStar agent")
+
 ## Evaluate our agent
 
 You can evaluate our agent by running:
