@@ -49,6 +49,6 @@ python pig_chase_eval.py
 ```
 Results will be written to `pig_chase_results.json`.
 
-Our results are also submitted to the leaderboard (team ParSys) and are as follows:
+Our results are also submitted to the [leaderboard](https://malmo-leaderboard.azurewebsites.net/) (team ParSys) and are as follows:
 
 Eval Score @ 100k: 1.752 | Eval Score @ 500k: 2.113
